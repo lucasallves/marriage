@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alana & Lucas - Casamento</title>
+    <link rel="icon" type="image/png" href="Monograma.png">
+
+    <!-- Google Fonts: Cormorant Garamond for elegance, Montserrat for readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo"><img src="Monograma.png" alt="Alana & Lucas"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#details">Detalhes</a></li>
+                <li><a href="#schedule">Programação</a></li>
+                <li><a href="#dresscode">Traje</a></li>
+                <li><a href="#gifts">Presentes</a></li>
+                <li><a href="#location">Localização</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <img src="Monograma.png" alt="Monograma Alana & Lucas" class="logo">
+            <h1 class="couple-names">Alana <span class="ampersand">&</span> Lucas</h1>
+            <p class="wedding-date">16 de Maio de 2026</p>
+            <p class="tagline">Mas te vejo e sinto o brilho desse olhar, que me acalma e me traz forças para encarar tudo</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">000</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Wedding Details Section -->
+        <section class="section details" id="details">
+            <h2 class="section-title">Detalhes do Casamento</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Data</h3>
+                    <p>Sábado</p>
+                    <p class="highlight">16 de Maio de 2026</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Horário</h3>
+                    <p>A cerimônia começa às</p>
+                    <p class="highlight">16h00</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v3"></path>
+                            <path d="M10.5 3.5h3"></path>
+                            <path d="M12 5v2"></path>
+                            <path d="M6 10l6-3 6 3"></path>
+                            <path d="M6 10v11h12V10"></path>
+                            <path d="M10 21v-5h4v5"></path>
+                        </svg>
+                    </div>
+                    <h3>Cerimônia</h3>
+                    <p>Paróquia São José</p>
+                    <p class="address">Av. Duque de Caxias, 520</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
+                            <path d="M9 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                            <path d="M3 11h1"></path>
+                            <path d="M9 17c-4 0-6-2-6-6"></path>
+                            <path d="M9 17c4 0 6-2 6-6"></path>
+                            <path d="M9 12v5"></path>
+                        </svg>
+                    </div>
+                    <h3>Recepção</h3>
+                    <p>Engenho Eventos</p>
+                    <p class="address">R. Marcílio Dias, 522</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="section schedule" id="schedule">
+            <h2 class="section-title">Programação</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">16h00</div>
+                    <div class="timeline-content">
+                        <h3>Cerimônia</h3>
+                        <p>Junte-se a nós enquanto trocamos votos e iniciamos nossa jornada juntos</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17h30</div>
+                    <div class="timeline-content">
+                        <h3>Coquetel</h3>
+                        <p>Drinks e canapés enquanto registramos memórias</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">19h00</div>
+                    <div class="timeline-content">
+                        <h3>Recepção</h3>
+                        <p>Jantar, brindes e momentos especiais</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">21h00</div>
+                    <div class="timeline-content">
+                        <h3>Festa</h3>
+                        <p>Dança e celebração noite adentro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code Section -->
+        <section class="section dresscode" id="dresscode">
+            <h2 class="section-title">Traje</h2>
+            <div class="dresscode-content">
+                <p class="dresscode-main">Traje Social</p>
+                <p class="dresscode-note">Convidamos você a vestir-se elegantemente para celebrar esta ocasião especial. Homens de terno ou smoking, mulheres com vestidos longos ou sofisticados vestidos de festa.</p>
+            </div>
+        </section>
+
+        <!-- Gift Registry Section -->
+        <section class="section gifts" id="gifts">
+            <h2 class="section-title">Lista de Presentes</h2>
+            <div class="gifts-content">
+                <p class="gifts-message">Sua presença é o nosso maior presente. Mas se desejar nos presentear, deixamos algumas sugestões com muito carinho.</p>
+                <div class="gifts-grid">
+                    <a href="#" class="gift-card" target="_blank" rel="noopener noreferrer">
+                        <div class="gift-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="8" width="18" height="13" rx="2"></rect>
+                                <path d="M12 8V21"></path>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 8c-1.5-2-4-2.5-4-5a4 4 0 0 1 4 0 4 4 0 0 1 4 0c0 2.5-2.5 3-4 5"></path>
+                            </svg>
+                        </div>
+                        <h3>Lista Online</h3>
+                        <p>Acesse nossa lista de presentes</p>
+                    </a>
+                    <a href="#" class="gift-card" target="_blank" rel="noopener noreferrer">
+                        <div class="gift-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0"></path>
+                                <path d="M2 10h2"></path>
+                                <path d="M20 10h2"></path>
+                                <path d="M2 14h2"></path>
+                                <path d="M20 14h2"></path>
+                            </svg>
+                        </div>
+                        <h3>PIX</h3>
+                        <p>Contribua via transferência</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="section location" id="location">
+            <h2 class="section-title">Localização</h2>
+
+            <div class="location-grid">
+                <!-- Church Location -->
+                <div class="location-item">
+                    <div class="location-info">
+                        <div class="location-venue">
+                            <h3>Cerimônia</h3>
+                            <p class="venue-name">Paróquia São José</p>
+                            <address>
+                                Av. Duque de Caxias, 520
+                            </address>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps?q=Paróquia+São+José,+Av.+Duque+de+Caxias,+520&output=embed"
+                            width="100%"
+                            height="300"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localização da Cerimônia">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Reception Location -->
+                <div class="location-item">
+                    <div class="location-info">
+                        <div class="location-venue">
+                            <h3>Recepção</h3>
+                            <p class="venue-name">Engenho Eventos</p>
+                            <address>
+                                R. Marcílio Dias, 522
+                            </address>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps?q=Engenho+Eventos,+R.+Marcílio+Dias,+522&output=embed"
+                            width="100%"
+                            height="300"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localização da Recepção">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="Monograma.png" alt="Alana & Lucas" class="footer-logo">
+            <p class="thank-you">Obrigado por fazer parte da nossa história</p>
+            <p class="footer-names">Alana & Lucas</p>
+        </div>
+    </footer>
+
+    <script>
+        // Back to top button visibility
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Countdown timer
+        const weddingDate = new Date('2026-05-16T16:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(3, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
