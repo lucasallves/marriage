@@ -487,15 +487,74 @@
         // Auto-advance every 5 seconds
         let autoAdvance = setInterval(nextSlide, 5000);
 
+        // Drag functionality
+        let isDragging = false;
+        let hasDragged = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const carouselContainer = document.getElementById('carouselContainer');
+
+        carouselContainer.addEventListener('mousedown', dragStart);
+        carouselContainer.addEventListener('mousemove', drag);
+        carouselContainer.addEventListener('mouseup', dragEnd);
+        carouselContainer.addEventListener('mouseleave', dragEnd);
+
+        carouselContainer.addEventListener('touchstart', dragStart);
+        carouselContainer.addEventListener('touchmove', drag);
+        carouselContainer.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            isDragging = true;
+            hasDragged = false;
+            startPos = getPositionX(e);
+            const slideWidth = getSlideWidth();
+            prevTranslate = -currentSlide * slideWidth;
+            track.style.transition = 'none';
+            clearInterval(autoAdvance);
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const currentPosition = getPositionX(e);
+            const diff = currentPosition - startPos;
+            if (Math.abs(diff) > 5) {
+                hasDragged = true;
+                e.preventDefault();
+            }
+            currentTranslate = prevTranslate + (diff / carouselContainer.offsetWidth) * 100;
+            track.style.transform = `translateX(${currentTranslate}%)`;
+        }
+
+        function dragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            track.style.transition = 'transform 0.5s ease';
+
+            const slideWidth = getSlideWidth();
+            const movedSlides = Math.round((prevTranslate - currentTranslate) / slideWidth);
+            const maxSlide = getMaxSlide();
+
+            currentSlide = Math.max(0, Math.min(currentSlide + movedSlides, maxSlide));
+            updateCarousel();
+            autoAdvance = setInterval(nextSlide, 5000);
+        }
+
+        function getPositionX(e) {
+            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        }
+
         // Photo Modal
         const modal = document.getElementById('photoModal');
         const modalImage = document.getElementById('modalImage');
         const modalClose = document.getElementById('modalClose');
 
-        // Open modal when clicking a carousel image
+        // Open modal when clicking a carousel image (but not when dragging)
         slides.forEach(slide => {
             const img = slide.querySelector('img');
             img.addEventListener('click', () => {
+                if (hasDragged) return;
                 // Get high-res version of image
                 const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
                 modalImage.src = highResSrc;
