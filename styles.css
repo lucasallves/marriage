@@ -75,11 +75,18 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     z-index: 1000;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    transition: background var(--transition-smooth), box-shadow var(--transition-smooth), backdrop-filter var(--transition-smooth);
+}
+
+.navbar.scrolled {
     background: rgba(250, 248, 245, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 1px 0 rgba(61, 90, 115, 0.1);
-    transition: background var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .nav-content {

@@ -345,13 +345,22 @@
     </footer>
 
     <script>
-        // Back to top button visibility
+        // Back to top button visibility and navbar background
         const backToTop = document.getElementById('backToTop');
+        const navbar = document.querySelector('.navbar');
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
+            }
+
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
 
