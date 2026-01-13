@@ -457,7 +457,7 @@
 
         function updateCarousel() {
             const slideWidth = getSlideWidth();
-            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            track.style.transform = `translate3d(-${currentSlide * slideWidth}%, 0, 0)`;
             const dots = dotsContainer.querySelectorAll('.carousel-dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
@@ -524,7 +524,7 @@
                 e.preventDefault();
             }
             currentTranslate = prevTranslate + (diff / carouselContainer.offsetWidth) * 100;
-            track.style.transform = `translateX(${currentTranslate}%)`;
+            track.style.transform = `translate3d(${currentTranslate}%, 0, 0)`;
         }
 
         function dragEnd() {
