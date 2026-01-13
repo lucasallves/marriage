@@ -462,6 +462,183 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
+   Photo Gallery Section - Carousel
+   ========================================================================== */
+
+.gallery {
+    background: var(--color-cream);
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+.carousel-container {
+    overflow: hidden;
+    flex: 1;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 40%;
+    aspect-ratio: 4/3;
+    padding: 0 var(--spacing-xs);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        min-width: 80%;
+    }
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity var(--transition-smooth);
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+}
+
+.carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: var(--spacing-md) auto 0;
+    padding: 0 var(--spacing-md);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.carousel-buttons {
+    position: absolute;
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    color: var(--color-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(61, 90, 115, 0.15);
+    transition: background var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.carousel-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: opacity var(--transition-smooth), background var(--transition-smooth);
+}
+
+.carousel-dot.active {
+    opacity: 1;
+    background: var(--color-accent);
+}
+
+/* Photo Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    transform: scale(0.9);
+    transition: transform var(--transition-smooth);
+}
+
+.modal.active .modal-image {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+    opacity: 0.8;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.modal-close svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+/* ==========================================================================
    Schedule / Timeline Section
    ========================================================================== */
 

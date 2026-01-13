@@ -25,6 +25,7 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#details">Detalhes</a></li>
+                <li><a href="#gallery">Fotos</a></li>
                 <li><a href="#schedule">Programação</a></li>
                 <li><a href="#dresscode">Traje</a></li>
                 <li><a href="#gifts">Presentes</a></li>
@@ -130,6 +131,50 @@
                     <h3>Recepção</h3>
                     <p>Engenho Eventos</p>
                     <p class="address">R. Marcílio Dias, 522</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="section gallery" id="gallery">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="carousel">
+                <div class="carousel-container" id="carouselContainer">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&h=600&fit=crop" alt="Foto do casal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <div class="carousel-dots" id="carouselDots"></div>
+                <div class="carousel-buttons">
+                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Próximo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </section>
@@ -272,6 +317,17 @@
         </section>
     </main>
 
+    <!-- Photo Modal -->
+    <div class="modal" id="photoModal">
+        <button class="modal-close" id="modalClose" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <img class="modal-image" id="modalImage" src="" alt="Foto ampliada">
+    </div>
+
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -358,6 +414,113 @@
             location: eventDetails.location
         });
         document.getElementById('calendarBtn').href = `https://calendar.google.com/calendar/render?${params}`;
+
+        // Carousel
+        const track = document.getElementById('carouselTrack');
+        const slides = track.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('carouselPrev');
+        const nextBtn = document.getElementById('carouselNext');
+        const dotsContainer = document.getElementById('carouselDots');
+        let currentSlide = 0;
+
+        function getSlideWidth() {
+            return window.innerWidth <= 768 ? 80 : 40;
+        }
+
+        function getMaxSlide() {
+            const slideWidth = getSlideWidth();
+            const visibleSlides = 100 / slideWidth;
+            return Math.max(0, slides.length - Math.floor(visibleSlides));
+        }
+
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            const maxSlide = getMaxSlide();
+            for (let i = 0; i <= maxSlide; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        createDots();
+        window.addEventListener('resize', () => {
+            createDots();
+            if (currentSlide > getMaxSlide()) {
+                currentSlide = getMaxSlide();
+            }
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const slideWidth = getSlideWidth();
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            const maxSlide = getMaxSlide();
+            currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            const maxSlide = getMaxSlide();
+            currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-advance every 5 seconds
+        let autoAdvance = setInterval(nextSlide, 5000);
+
+        // Photo Modal
+        const modal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        // Open modal when clicking a carousel image
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            img.addEventListener('click', () => {
+                // Get high-res version of image
+                const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
+                modalImage.src = highResSrc;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                clearInterval(autoAdvance);
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            autoAdvance = setInterval(nextSlide, 5000);
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
