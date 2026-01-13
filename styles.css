@@ -310,6 +310,85 @@ h1, h2, h3 {
     margin-top: var(--spacing-xs);
 }
 
+/* Add to Calendar */
+.add-to-calendar {
+    position: relative;
+    margin-top: var(--spacing-lg);
+}
+
+.calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.calendar-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.calendar-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.calendar-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(61, 90, 115, 0.2);
+    padding: var(--spacing-xs);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-smooth),
+                transform var(--transition-smooth),
+                visibility var(--transition-smooth);
+    z-index: 100;
+}
+
+.calendar-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.calendar-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: background var(--transition-smooth);
+}
+
+.calendar-dropdown a:hover {
+    background: var(--color-cream);
+}
+
+.calendar-dropdown svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+}
+
 /* Scroll indicator animation */
 .scroll-indicator {
     position: absolute;
