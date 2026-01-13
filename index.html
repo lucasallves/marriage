@@ -159,6 +159,14 @@
                         <div class="carousel-slide">
                             <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&h=600&fit=crop" alt="Foto do casal">
                         </div>
+                        <div class="carousel-slide carousel-slide-video" data-video="video-nyc.mp4">
+                            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=600&fit=crop" alt="Vídeo do casal">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -317,7 +325,7 @@
         </section>
     </main>
 
-    <!-- Photo Modal -->
+    <!-- Photo/Video Modal -->
     <div class="modal" id="photoModal">
         <button class="modal-close" id="modalClose" aria-label="Fechar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -326,6 +334,9 @@
             </svg>
         </button>
         <img class="modal-image" id="modalImage" src="" alt="Foto ampliada">
+        <video class="modal-video" id="modalVideo" controls style="display: none;">
+            <source src="" type="video/mp4">
+        </video>
     </div>
 
     <!-- Back to Top Button -->
@@ -554,19 +565,34 @@
             return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         }
 
-        // Photo Modal
+        // Photo/Video Modal
         const modal = document.getElementById('photoModal');
         const modalImage = document.getElementById('modalImage');
+        const modalVideo = document.getElementById('modalVideo');
         const modalClose = document.getElementById('modalClose');
 
-        // Open modal when clicking a carousel image (but not when dragging)
+        // Open modal when clicking a carousel image/video (but not when dragging)
         slides.forEach(slide => {
-            const img = slide.querySelector('img');
-            img.addEventListener('click', () => {
+            slide.addEventListener('click', () => {
                 if (hasDragged) return;
-                // Get high-res version of image
-                const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
-                modalImage.src = highResSrc;
+
+                const videoSrc = slide.dataset.video;
+                if (videoSrc) {
+                    // It's a video slide
+                    modalImage.style.display = 'none';
+                    modalVideo.style.display = 'block';
+                    modalVideo.querySelector('source').src = videoSrc;
+                    modalVideo.load();
+                    modalVideo.play();
+                } else {
+                    // It's an image slide
+                    const img = slide.querySelector('img');
+                    const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
+                    modalVideo.style.display = 'none';
+                    modalImage.style.display = 'block';
+                    modalImage.src = highResSrc;
+                }
+
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 clearInterval(autoAdvance);
@@ -577,6 +603,8 @@
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
             autoAdvance = setInterval(nextSlide, 5000);
         }
 

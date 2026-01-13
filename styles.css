@@ -539,6 +539,38 @@ h1, h2, h3 {
     opacity: 0.95;
 }
 
+.carousel-slide-video {
+    position: relative;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: transform var(--transition-smooth), background var(--transition-smooth);
+    pointer-events: none;
+}
+
+.play-icon svg {
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
+}
+
+.carousel-slide-video:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--color-white);
+}
+
 .carousel-controls {
     position: relative;
     display: flex;
@@ -665,6 +697,12 @@ h1, h2, h3 {
 .modal-close svg {
     width: 32px;
     height: 32px;
+}
+
+.modal-video {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 4px;
 }
 
 
