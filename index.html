@@ -347,6 +347,34 @@
         const navbar = document.querySelector('.navbar');
         const heroHeight = document.querySelector('.hero').offsetHeight;
 
+        // Scroll spy for navbar
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === '#' + sectionId) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            // Remove active class if at top of page (hero section)
+            if (window.scrollY < 300) {
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        }
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTop.classList.add('visible');
@@ -359,6 +387,8 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+
+            updateActiveNav();
         });
 
         // Mobile menu toggle
