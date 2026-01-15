@@ -837,8 +837,8 @@ h1, h2, h3 {
 }
 
 .gifts-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: center;
     gap: var(--spacing-md);
 }
 
@@ -846,11 +846,12 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xl);
     background: var(--color-white);
     border-radius: 8px;
     text-decoration: none;
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    max-width: 350px;
 }
 
 .gift-card:hover {
@@ -882,11 +883,6 @@ h1, h2, h3 {
     color: var(--color-text-light);
 }
 
-@media (min-width: 600px) {
-    .gifts-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 /* ==========================================================================
    Location Section
