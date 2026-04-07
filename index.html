@@ -6,63 +6,76 @@
     <title>Alana & Lucas - Casamento</title>
     <link rel="icon" type="image/png" href="Monograma.png">
 
-    <!-- Google Fonts: Great Vibes (script accents) + Cormorant Garamond (headings) + Montserrat (body) -->
+    <!-- Playfair Display (editorial headings) + Inter (clean body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="nav-logo"><img src="Monograma.png" alt="Alana & Lucas"></a>
+
+    <!-- Side Dot Navigation (desktop) -->
+    <nav class="side-nav" id="sideNav" aria-label="Navegação">
+        <a href="#hero" data-label="Início" class="active"></a>
+        <a href="#details" data-label="Detalhes"></a>
+        <a href="#gallery" data-label="Fotos"></a>
+
+        <a href="#dresscode" data-label="Traje"></a>
+        <a href="#gifts" data-label="Presentes"></a>
+        <a href="#location" data-label="Localização"></a>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-inner">
+            <a href="#hero" class="nav-logo"><img src="Monograma.png" alt="Alana & Lucas"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#details">Detalhes</a></li>
-                <li><a href="#gallery">Fotos</a></li>
-                <li><a href="#schedule">Programação</a></li>
-                <li><a href="#dresscode">Traje</a></li>
-                <li><a href="#gifts">Presentes</a></li>
-                <li><a href="#location">Localização</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#details">Detalhes</a>
+        <a href="#gallery">Fotos</a>
+        <a href="#dresscode">Traje</a>
+        <a href="#gifts">Presentes</a>
+        <a href="#location">Localização</a>
+    </div>
+
+    <!-- ============================================================
+         HERO — Dark cinematic fullscreen
+         ============================================================ -->
+    <header class="hero" id="hero">
+        <div class="hero-inner">
             <img src="Monograma.png" alt="Monograma Alana & Lucas" class="logo">
             <h1 class="couple-names">Alana <span class="ampersand">&</span> Lucas</h1>
             <p class="wedding-date">16 de Maio de 2026</p>
-            <div class="hero-divider"></div>
+            <div class="hero-rule"></div>
             <p class="tagline">Mas te vejo e sinto o brilho desse olhar, que me acalma e me traz forças para encarar tudo</p>
+
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span class="countdown-value" id="days">000</span>
                     <span class="countdown-label">Dias</span>
                 </div>
-                <span class="countdown-separator">:</span>
                 <div class="countdown-item">
                     <span class="countdown-value" id="hours">00</span>
                     <span class="countdown-label">Horas</span>
                 </div>
-                <span class="countdown-separator">:</span>
                 <div class="countdown-item">
                     <span class="countdown-value" id="minutes">00</span>
                     <span class="countdown-label">Minutos</span>
                 </div>
-                <span class="countdown-separator">:</span>
                 <div class="countdown-item">
                     <span class="countdown-value" id="seconds">00</span>
                     <span class="countdown-label">Segundos</span>
                 </div>
             </div>
+
             <a href="#" class="calendar-btn" id="calendarBtn" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -75,258 +88,189 @@
                 Adicionar ao Calendário
             </a>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
+
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-hint-line"></div>
         </div>
     </header>
 
     <main>
-        <!-- Wedding Details Section -->
-        <section class="section details" id="details">
-            <div class="section-header reveal">
-                <span class="section-label">Celebração</span>
-                <h2 class="section-title">Detalhes do Casamento</h2>
-            </div>
-            <div class="details-grid">
-                <div class="detail-card reveal reveal-delay-1">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                    </div>
-                    <h3>Data</h3>
-                    <p>Sábado</p>
-                    <p class="highlight">16 de Maio de 2026</p>
+        <!-- ============================================================
+             DETAILS — Editorial list with numbered items
+             ============================================================ -->
+        <section class="details-section" id="details">
+            <div class="details-inner">
+                <div class="details-header rv">
+                    <span class="section-label">Celebração</span>
+                    <h2 class="section-title">Detalhes do<br>Casamento</h2>
+                    <div class="section-rule"></div>
                 </div>
-                <div class="detail-card reveal reveal-delay-2">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Horário</h3>
-                    <p>A cerimônia começará</p>
-                    <p class="highlight">16h00</p>
-                </div>
-                <div class="detail-card reveal reveal-delay-3">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2v3"></path>
-                            <path d="M10.5 3.5h3"></path>
-                            <path d="M12 5v2"></path>
-                            <path d="M6 10l6-3 6 3"></path>
-                            <path d="M6 10v11h12V10"></path>
-                            <path d="M10 21v-5h4v5"></path>
-                        </svg>
-                    </div>
-                    <h3>Cerimônia</h3>
-                    <p>Paróquia São José</p>
-                    <p class="address">Av. Duque de Caxias, 520</p>
-                </div>
-                <div class="detail-card reveal reveal-delay-4">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M4 2h16l-3 9H7L4 2z"></path>
-                            <path d="M12 11v9"></path>
-                            <path d="M8 20h8"></path>
-                        </svg>
-                    </div>
-                    <h3>Recepção</h3>
-                    <p>Engenho Eventos</p>
-                    <p class="address">R. Marcílio Dias, 522</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Photo Gallery Section -->
-        <section class="section gallery" id="gallery">
-            <div class="section-header reveal">
-                <span class="section-label">Momentos</span>
-                <h2 class="section-title">Nossa História</h2>
-            </div>
-            <div class="carousel reveal">
-                <div class="carousel-container" id="carouselContainer">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop" alt="Foto do casal">
+                <div class="details-grid">
+                    <div class="detail-row">
+                        <div class="detail-item rv rv-d1">
+                            <span class="detail-num">01</span>
+                            <div>
+                                <span class="detail-label">Data</span>
+                                <p class="detail-value">16 de Maio de 2026</p>
+                                <p class="detail-sub">Sábado</p>
+                            </div>
                         </div>
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop" alt="Foto do casal">
+                        <div class="detail-item rv rv-d2">
+                            <span class="detail-num">02</span>
+                            <div>
+                                <span class="detail-label">Horário</span>
+                                <p class="detail-value">16h00</p>
+                                <p class="detail-sub">A cerimônia começará</p>
+                            </div>
                         </div>
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop" alt="Foto do casal">
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-item rv rv-d3">
+                            <span class="detail-num">03</span>
+                            <div>
+                                <span class="detail-label">Cerimônia</span>
+                                <p class="detail-value">Paróquia São José</p>
+                                <p class="detail-sub">Av. Duque de Caxias, 520</p>
+                            </div>
                         </div>
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=600&fit=crop" alt="Foto do casal">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=800&h=600&fit=crop" alt="Foto do casal">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&h=600&fit=crop" alt="Foto do casal">
-                        </div>
-                        <div class="carousel-slide carousel-slide-video" data-video="video-nyc.mp4">
-                            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=600&fit=crop" alt="Vídeo do casal">
-                            <div class="play-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
+                        <div class="detail-item rv rv-d4">
+                            <span class="detail-num">04</span>
+                            <div>
+                                <span class="detail-label">Recepção</span>
+                                <p class="detail-value">Engenho Eventos</p>
+                                <p class="detail-sub">R. Marcílio Dias, 522</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-controls">
-                <div class="carousel-dots" id="carouselDots"></div>
-                <div class="carousel-buttons">
-                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
+        </section>
+
+        <!-- ============================================================
+             GALLERY — Masonry photo grid on dark background
+             ============================================================ -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-header rv">
+                <span class="section-label" style="color: var(--gold-light);">Momentos</span>
+                <h2 class="section-title">O Pedido</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item rv">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&h=500&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=450&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&h=450&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item rv rv-d3">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=450&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=600&h=450&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&h=450&fit=crop" alt="Foto do casal" loading="lazy">
+                </div>
+                <div class="gallery-item gallery-item-video rv rv-d3" data-video="video-nyc.mp4">
+                    <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&h=450&fit=crop" alt="Vídeo do casal" loading="lazy">
+                    <div class="play-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
                         </svg>
-                    </button>
-                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Próximo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Schedule Section -->
-        <section class="section schedule" id="schedule">
-            <div class="section-header reveal">
-                <span class="section-label">O Grande Dia</span>
-                <h2 class="section-title">Programação</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-time">16h00</div>
-                    <div class="timeline-content">
-                        <h3>Cerimônia</h3>
-                        <p>Junte-se a nós enquanto trocamos votos e iniciamos nossa jornada juntos</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-time">17h30</div>
-                    <div class="timeline-content">
-                        <h3>Coquetel</h3>
-                        <p>Drinks e canapés enquanto registramos memórias</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-time">19h00</div>
-                    <div class="timeline-content">
-                        <h3>Recepção</h3>
-                        <p>Jantar, brindes e momentos especiais</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-time">21h00</div>
-                    <div class="timeline-content">
-                        <h3>Festa</h3>
-                        <p>Dança e celebração noite adentro</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Dress Code Section -->
-        <section class="section dresscode" id="dresscode">
-            <div class="section-header reveal">
-                <span class="section-label" style="color: var(--color-accent-light);">Elegância</span>
-                <h2 class="section-title">Traje</h2>
-            </div>
-            <div class="dresscode-content reveal">
-                <p class="dresscode-main">Traje Social</p>
-                <p class="dresscode-note">Convidamos você a vestir-se elegantemente para celebrar esta ocasião especial. Homens de terno ou smoking, mulheres com vestidos longos ou sofisticados vestidos de festa.</p>
+        <!-- ============================================================
+             DRESS CODE — Dark cinematic band
+             ============================================================ -->
+        <section class="dresscode-section" id="dresscode">
+            <div class="rv">
+                <p class="dresscode-label">Elegância</p>
+                <h2 class="dresscode-title">Traje Social</h2>
+                <p class="dresscode-note">Pedimos que evitem as cores branca, off white, nude ou tons muito claros, assim como o terracota, que será utilizado pelas madrinhas.</p>
             </div>
         </section>
 
-        <!-- Gift Registry Section -->
-        <section class="section gifts" id="gifts">
-            <div class="section-header reveal">
-                <span class="section-label">Com Carinho</span>
-                <h2 class="section-title">Lista de Presentes</h2>
+        <!-- ============================================================
+             GIFTS — Minimal centered
+             ============================================================ -->
+        <section class="gifts-section" id="gifts">
+            <div class="gifts-inner">
+                <div class="rv">
+                    <span class="section-label">Com Carinho</span>
+                    <h2 class="section-title">Operação Lua de Mel</h2>
+                    <div class="section-rule" style="margin-left:auto;margin-right:auto;"></div>
+                </div>
+                <p class="gifts-message rv">Sua presença é o nosso maior presente. Mas se você desejar nos presentear, participe da nossa Operação Lua de Mel e contribua com qualquer valor para a nossa viagem dos sonhos.</p>
+                <a href="#" class="gift-link rv" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="8" width="18" height="13" rx="2"></rect>
+                        <path d="M12 8V21"></path>
+                        <path d="M3 12h18"></path>
+                        <path d="M12 8c-1.5-2-4-2.5-4-5a4 4 0 0 1 4 0 4 4 0 0 1 4 0c0 2.5-2.5 3-4 5"></path>
+                    </svg>
+                    Acesse a Lista
+                </a>
             </div>
-            <div class="gifts-content">
-                <p class="gifts-message reveal">Sua presença é o nosso maior presente. Mas se desejar nos presentear, deixamos algumas sugestões com muito carinho.</p>
-                <div class="gifts-grid">
-                    <a href="#" class="gift-card reveal" target="_blank" rel="noopener noreferrer">
-                        <div class="gift-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="8" width="18" height="13" rx="2"></rect>
-                                <path d="M12 8V21"></path>
-                                <path d="M3 12h18"></path>
-                                <path d="M12 8c-1.5-2-4-2.5-4-5a4 4 0 0 1 4 0 4 4 0 0 1 4 0c0 2.5-2.5 3-4 5"></path>
-                            </svg>
+        </section>
+
+        <!-- ============================================================
+             LOCATION — Clean split cards
+             ============================================================ -->
+        <section class="location-section" id="location">
+            <div class="location-inner">
+                <div class="rv">
+                    <span class="section-label">Onde Vamos Nos Encontrar</span>
+                    <h2 class="section-title">Localização</h2>
+                    <div class="section-rule"></div>
+                </div>
+
+                <div class="location-grid">
+                    <div class="location-card rv">
+                        <div class="location-info">
+                            <p class="location-type">Cerimônia</p>
+                            <h3 class="location-name">Paróquia São José</h3>
+                            <address class="location-address">Av. Duque de Caxias, 520</address>
                         </div>
-                        <h3>Lista Online</h3>
-                        <p>Acesse nossa lista de presentes</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Location Section -->
-        <section class="section location" id="location">
-            <div class="section-header reveal">
-                <span class="section-label">Onde nos encontrar</span>
-                <h2 class="section-title">Localização</h2>
-            </div>
-
-            <div class="location-grid">
-                <!-- Church Location -->
-                <div class="location-item reveal">
-                    <div class="location-info">
-                        <div class="location-venue">
-                            <h3>Cerimônia</h3>
-                            <p class="venue-name">Paróquia São José</p>
-                            <address>
-                                Av. Duque de Caxias, 520
-                            </address>
+                        <div class="location-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=Paróquia+São+José,+Av.+Duque+de+Caxias,+520&output=embed"
+                                width="100%"
+                                height="250"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Localização da Cerimônia">
+                            </iframe>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <iframe
-                            src="https://www.google.com/maps?q=Paróquia+São+José,+Av.+Duque+de+Caxias,+520&output=embed"
-                            width="100%"
-                            height="300"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Localização da Cerimônia">
-                        </iframe>
-                    </div>
-                </div>
 
-                <!-- Reception Location -->
-                <div class="location-item reveal">
-                    <div class="location-info">
-                        <div class="location-venue">
-                            <h3>Recepção</h3>
-                            <p class="venue-name">Engenho Eventos</p>
-                            <address>
-                                R. Marcílio Dias, 522
-                            </address>
+                    <div class="location-card rv rv-d1">
+                        <div class="location-info">
+                            <p class="location-type">Recepção</p>
+                            <h3 class="location-name">Engenho Eventos</h3>
+                            <address class="location-address">R. Marcílio Dias, 522</address>
                         </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe
-                            src="https://www.google.com/maps?q=Engenho+Eventos,+R.+Marcílio+Dias,+522&output=embed"
-                            width="100%"
-                            height="300"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Localização da Recepção">
-                        </iframe>
+                        <div class="location-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=Engenho+Eventos,+R.+Marcílio+Dias,+522&output=embed"
+                                width="100%"
+                                height="250"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Localização da Recepção">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -347,8 +291,8 @@
         </video>
     </div>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <!-- Back to Top -->
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
@@ -356,9 +300,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content reveal">
+        <div class="rv">
             <img src="Monograma.png" alt="Alana & Lucas" class="footer-logo">
-            <p class="thank-you">Obrigado por fazer parte da nossa história</p>
+            <p class="footer-quote">Obrigado por fazer parte da nossa história</p>
             <p class="footer-names">Alana & Lucas</p>
         </div>
     </footer>
@@ -367,281 +311,124 @@
         // =================================================================
         // Scroll Reveal (IntersectionObserver)
         // =================================================================
-        const revealElements = document.querySelectorAll('.reveal');
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealEls = document.querySelectorAll('.rv, .rv-left, .rv-right');
 
         if (!prefersReducedMotion) {
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        revealObserver.unobserve(entry.target);
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        obs.unobserve(e.target);
                     }
                 });
-            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-            revealElements.forEach(el => revealObserver.observe(el));
+            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+            revealEls.forEach(el => obs.observe(el));
         } else {
-            revealElements.forEach(el => el.classList.add('revealed'));
+            revealEls.forEach(el => el.classList.add('is-visible'));
         }
 
         // =================================================================
-        // Back to top & navbar background
+        // Side Nav scroll spy
         // =================================================================
-        const backToTop = document.getElementById('backToTop');
-        const navbar = document.querySelector('.navbar');
+        const sideNavLinks = document.querySelectorAll('.side-nav a');
+        const allSections = document.querySelectorAll('[id]');
+        const sectionIds = ['hero', 'details', 'gallery', 'dresscode', 'gifts', 'location'];
 
-        // Scroll spy
-        const sections = document.querySelectorAll('section[id]');
-        const navItems = document.querySelectorAll('.nav-links a');
+        function updateSideNav() {
+            const scrollY = window.scrollY + window.innerHeight / 3;
+            let current = 'hero';
 
-        function updateActiveNav() {
-            const scrollPos = window.scrollY + 150;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navItems.forEach(item => {
-                        item.classList.remove('active');
-                        if (item.getAttribute('href') === '#' + sectionId) {
-                            item.classList.add('active');
-                        }
-                    });
-                }
+            sectionIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.offsetTop <= scrollY) current = id;
             });
 
-            if (window.scrollY < 300) {
-                navItems.forEach(item => item.classList.remove('active'));
-            }
+            sideNavLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
         }
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            updateActiveNav();
-        }, { passive: true });
-
         // =================================================================
-        // Mobile menu toggle
+        // Mobile nav
         // =================================================================
+        const mobileNav = document.getElementById('mobileNav');
         const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const backToTop = document.getElementById('backToTop');
 
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
 
         // =================================================================
-        // Countdown timer
+        // Scroll events (passive)
+        // =================================================================
+        window.addEventListener('scroll', () => {
+            // Back to top
+            backToTop.classList.toggle('visible', window.scrollY > 400);
+
+            // Mobile nav background
+            mobileNav.classList.toggle('scrolled', window.scrollY > 100);
+
+            // Side nav spy
+            updateSideNav();
+        }, { passive: true });
+
+        // =================================================================
+        // Countdown
         // =================================================================
         const weddingDate = new Date('2026-05-16T16:00:00').getTime();
 
         function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+            const dist = weddingDate - Date.now();
+            const d = Math.floor(dist / 864e5);
+            const h = Math.floor((dist % 864e5) / 36e5);
+            const m = Math.floor((dist % 36e5) / 6e4);
+            const s = Math.floor((dist % 6e4) / 1e3);
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days < 100 ? days.toString() : days.toString().padStart(3, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('days').textContent = d < 100 ? d : String(d).padStart(3, '0');
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
         // =================================================================
-        // Add to Calendar - Google Calendar
+        // Google Calendar
         // =================================================================
-        const eventDetails = {
-            title: 'Casamento Alana & Lucas',
-            description: 'Cerimônia às 16h na Paróquia São José, seguida de recepção no Engenho Eventos.',
-            location: 'Paróquia São José - Av. Duque de Caxias, 520',
-            startDate: '2026-05-16',
-            startTime: '16:00',
-            endDate: '2026-05-17',
-            endTime: '00:00'
-        };
-
-        const start = eventDetails.startDate.replace(/-/g, '') + 'T' + eventDetails.startTime.replace(':', '') + '00';
-        const end = eventDetails.endDate.replace(/-/g, '') + 'T' + eventDetails.endTime.replace(':', '') + '00';
-        const params = new URLSearchParams({
+        const calParams = new URLSearchParams({
             action: 'TEMPLATE',
-            text: eventDetails.title,
-            dates: `${start}/${end}`,
-            details: eventDetails.description,
-            location: eventDetails.location
+            text: 'Casamento Alana & Lucas',
+            dates: '20260516T160000/20260517T000000',
+            details: 'Cerimônia às 16h na Paróquia São José, seguida de recepção no Engenho Eventos.',
+            location: 'Paróquia São José - Av. Duque de Caxias, 520'
         });
-        document.getElementById('calendarBtn').href = `https://calendar.google.com/calendar/render?${params}`;
+        document.getElementById('calendarBtn').href = 'https://calendar.google.com/calendar/render?' + calParams;
 
         // =================================================================
-        // Carousel
-        // =================================================================
-        const track = document.getElementById('carouselTrack');
-        const slides = track.querySelectorAll('.carousel-slide');
-        const prevBtn = document.getElementById('carouselPrev');
-        const nextBtn = document.getElementById('carouselNext');
-        const dotsContainer = document.getElementById('carouselDots');
-        let currentSlide = 0;
-
-        function getSlideWidth() {
-            return window.innerWidth <= 768 ? 80 : 40;
-        }
-
-        function getMaxSlide() {
-            const slideWidth = getSlideWidth();
-            const visibleSlides = 100 / slideWidth;
-            return Math.max(0, slides.length - Math.floor(visibleSlides));
-        }
-
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            const maxSlide = getMaxSlide();
-            for (let i = 0; i <= maxSlide; i++) {
-                const dot = document.createElement('span');
-                dot.classList.add('carousel-dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        createDots();
-        window.addEventListener('resize', () => {
-            createDots();
-            if (currentSlide > getMaxSlide()) {
-                currentSlide = getMaxSlide();
-            }
-            updateCarousel();
-        });
-
-        function updateCarousel() {
-            const slideWidth = getSlideWidth();
-            track.style.transform = `translate3d(-${currentSlide * slideWidth}%, 0, 0)`;
-            const dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        function nextSlide() {
-            const maxSlide = getMaxSlide();
-            currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            const maxSlide = getMaxSlide();
-            currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
-            updateCarousel();
-        }
-
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        let autoAdvance = setInterval(nextSlide, 5000);
-
-        // Drag functionality
-        let isDragging = false;
-        let hasDragged = false;
-        let startPos = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-
-        const carouselContainer = document.getElementById('carouselContainer');
-
-        carouselContainer.addEventListener('mousedown', dragStart);
-        carouselContainer.addEventListener('mousemove', drag);
-        carouselContainer.addEventListener('mouseup', dragEnd);
-        carouselContainer.addEventListener('mouseleave', dragEnd);
-
-        carouselContainer.addEventListener('touchstart', dragStart, { passive: true });
-        carouselContainer.addEventListener('touchmove', drag, { passive: false });
-        carouselContainer.addEventListener('touchend', dragEnd);
-
-        function dragStart(e) {
-            isDragging = true;
-            hasDragged = false;
-            startPos = getPositionX(e);
-            const slideWidth = getSlideWidth();
-            prevTranslate = -currentSlide * slideWidth;
-            track.style.transition = 'none';
-            clearInterval(autoAdvance);
-        }
-
-        function drag(e) {
-            if (!isDragging) return;
-            const currentPosition = getPositionX(e);
-            const diff = currentPosition - startPos;
-            if (Math.abs(diff) > 5) {
-                hasDragged = true;
-                e.preventDefault();
-            }
-            currentTranslate = prevTranslate + (diff / carouselContainer.offsetWidth) * 100;
-            track.style.transform = `translate3d(${currentTranslate}%, 0, 0)`;
-        }
-
-        function dragEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)';
-
-            const slideWidth = getSlideWidth();
-            const movedSlides = Math.round((prevTranslate - currentTranslate) / slideWidth);
-            const maxSlide = getMaxSlide();
-
-            currentSlide = Math.max(0, Math.min(currentSlide + movedSlides, maxSlide));
-            updateCarousel();
-            autoAdvance = setInterval(nextSlide, 5000);
-        }
-
-        function getPositionX(e) {
-            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        }
-
-        // =================================================================
-        // Photo/Video Modal
+        // Gallery modal (click on any gallery item)
         // =================================================================
         const modal = document.getElementById('photoModal');
         const modalImage = document.getElementById('modalImage');
         const modalVideo = document.getElementById('modalVideo');
         const modalClose = document.getElementById('modalClose');
 
-        slides.forEach(slide => {
-            slide.addEventListener('click', () => {
-                if (hasDragged) return;
-
-                const videoSrc = slide.dataset.video;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const videoSrc = item.dataset.video;
                 if (videoSrc) {
                     modalImage.style.display = 'none';
                     modalVideo.style.display = 'block';
@@ -649,16 +436,14 @@
                     modalVideo.load();
                     modalVideo.play();
                 } else {
-                    const img = slide.querySelector('img');
-                    const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
+                    const img = item.querySelector('img');
+                    const hiRes = img.src.replace(/w=\d+&h=\d+/, 'w=1600&h=1200');
                     modalVideo.style.display = 'none';
                     modalImage.style.display = 'block';
-                    modalImage.src = highResSrc;
+                    modalImage.src = hiRes;
                 }
-
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                clearInterval(autoAdvance);
             });
         });
 
@@ -667,17 +452,12 @@
             document.body.style.overflow = '';
             modalVideo.pause();
             modalVideo.currentTime = 0;
-            autoAdvance = setInterval(nextSlide, 5000);
         }
 
         modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
         });
     </script>
 </body>
