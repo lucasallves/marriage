@@ -892,83 +892,6 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   Schedule / Timeline
-   ========================================================================== */
-
-.schedule {
-    background: var(--color-cream);
-}
-
-.timeline {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: linear-gradient(
-        180deg,
-        var(--color-accent) 0%,
-        var(--color-primary-light) 100%
-    );
-    opacity: 0.3;
-}
-
-.timeline-item {
-    display: flex;
-    gap: var(--space-6);
-    padding-bottom: var(--space-12);
-    position: relative;
-    padding-left: var(--space-8);
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -4px;
-    top: 6px;
-    width: 9px;
-    height: 9px;
-    background: var(--color-cream);
-    border: 2px solid var(--color-accent);
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.timeline-time {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--color-accent-dark);
-    white-space: nowrap;
-    min-width: 64px;
-    letter-spacing: 0.02em;
-}
-
-.timeline-content h3 {
-    font-size: 1.3rem;
-    color: var(--color-primary);
-    margin-bottom: var(--space-1);
-    font-weight: 400;
-}
-
-.timeline-content p {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
    Dress Code
    ========================================================================== */
 
@@ -1020,6 +943,84 @@ h1, h2, h3 {
     line-height: 1.9;
     opacity: 0.85;
     font-weight: 300;
+}
+
+.swatches-heading {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-accent-light);
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.swatches-heading::before,
+.swatches-heading::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--color-accent-light);
+    opacity: 0.4;
+}
+
+.color-swatches {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.swatch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1;
+    max-width: 80px;
+}
+
+.swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.swatch-badge {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 16px;
+    height: 16px;
+    background: rgba(220, 38, 38, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.swatch-badge::after {
+    content: '✕';
+    font-size: 0.5rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.swatch-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ==========================================================================
@@ -1308,21 +1309,6 @@ h1, h2, h3 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .timeline {
-        padding-left: var(--space-6);
-    }
-
-    .timeline::before {
-        left: var(--space-6);
-    }
-
-    .timeline-item {
-        padding-left: calc(var(--space-6) + var(--space-8));
-    }
-
-    .timeline-item::before {
-        left: calc(var(--space-6) - 4px);
-    }
 }
 
 /* ==========================================================================
@@ -1338,17 +1324,6 @@ h1, h2, h3 {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    .timeline {
-        max-width: 680px;
-    }
-
-    .timeline-item {
-        gap: var(--space-8);
-    }
-
-    .timeline-time {
-        min-width: 80px;
-    }
 }
 
 /* ==========================================================================
