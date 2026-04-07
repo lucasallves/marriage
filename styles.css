@@ -663,10 +663,21 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
+.gallery-description {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+    text-align: center;
+}
+
 .carousel {
     position: relative;
+    width: 100vw;
     margin-left: calc(-1 * var(--space-6));
-    margin-right: calc(-1 * var(--space-6));
 }
 
 .carousel-container {
