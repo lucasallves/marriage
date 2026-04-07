@@ -148,34 +148,48 @@
                 <span class="section-label">Momentos</span>
                 <h2 class="section-title">O Pedido</h2>
             </div>
+            <p class="gallery-description reveal">O tão sonhado pedido de casamento aconteceu em Nova York, ao lado do icônico prédio de Friends, nosso seriado favorito. Durante uma sessão de fotos, veio a surpresa: um "sim" inesquecível, registrado para sempre. Um verdadeiro conto de fadas moderno.</p>
             <div class="carousel reveal">
                 <div class="carousel-container" id="carouselContainer">
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00112_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00170_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00207_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00243_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00250_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&h=600&fit=crop" alt="Foto do casal">
+                            <img src="proposal-photos/optimized/DSC00271_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
-                        <div class="carousel-slide carousel-slide-video" data-video="video-nyc.mp4">
-                            <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=600&fit=crop" alt="Vídeo do casal">
-                            <div class="play-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00285_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00305_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00316_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00348_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00362_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00398_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="proposal-photos/optimized/DSC00405_full.webp" alt="Pedido de casamento em Nova York" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -665,11 +679,10 @@
                     modalVideo.load();
                     modalVideo.play();
                 } else {
-                    const img = slide.querySelector('img');
-                    const highResSrc = img.src.replace('w=800&h=600', 'w=1600&h=1200');
+                    const fullSrc = slide.querySelector('img').src;
                     modalVideo.style.display = 'none';
                     modalImage.style.display = 'block';
-                    modalImage.src = highResSrc;
+                    modalImage.src = fullSrc;
                 }
 
                 modal.classList.add('active');
